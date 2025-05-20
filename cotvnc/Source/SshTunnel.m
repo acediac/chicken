@@ -343,7 +343,7 @@ static BOOL portUsed[TUNNEL_PORT_END - TUNNEL_PORT_START];
     // messages sent via our helper. These require a response.
     if ([str hasPrefix:@"Chicken ssh-helper: "]) {
         if ([str hasPrefix:@"Chicken ssh-helper: Password:"]
-                || [str hasSuffix:@"'s password:"]) {
+                || [str hasSuffix:@"assword:"]) { // Fix for password prompt which is different for various sshd variants
             if (state == SSH_STATE_OPENING) {
                 state = SSH_STATE_PROMPT;
                 [delegate getPassword];
